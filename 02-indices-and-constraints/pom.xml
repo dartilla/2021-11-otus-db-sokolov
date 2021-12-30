@@ -42,13 +42,6 @@
                             <goal>update</goal>
                         </goals>
                     </execution>
-                    <execution>
-                        <id>Generate dbDoc</id>
-                        <phase>compile</phase>
-                        <goals>
-                            <goal>dbDoc</goal>
-                        </goals>
-                    </execution>
                 </executions>
             </plugin>
         </plugins>
