@@ -16,21 +16,6 @@
     <build>
         <plugins>
             <plugin>
-                <artifactId>maven-clean-plugin</artifactId>
-                <version>3.1.0</version>
-                <configuration>
-                    <filesets>
-                        <fileset>
-                            <directory>docs</directory>
-                            <excludes>
-                                <exclude>schema.svg</exclude>
-                                <exclude>schema.uml</exclude>
-                            </excludes>
-                        </fileset>
-                    </filesets>
-                </configuration>
-            </plugin>
-            <plugin>
                 <groupId>org.liquibase</groupId>
                 <artifactId>liquibase-maven-plugin</artifactId>
                 <version>4.3.5</version>
@@ -42,14 +27,68 @@
                             <goal>update</goal>
                         </goals>
                     </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <artifactId>maven-antrun-plugin</artifactId>
+                <version>1.3</version>
+                <executions>
                     <execution>
-                        <id>Generate dbDoc</id>
-                        <phase>compile</phase>
+                        <id>generate-sources</id>
+                        <phase>generate-sources</phase>
+                        <configuration>
+                            <tasks>
+                                <mkdir dir="target/dbDoc"/>
+                            </tasks>
+                        </configuration>
                         <goals>
-                            <goal>dbDoc</goal>
+                            <goal>run</goal>
                         </goals>
                     </execution>
                 </executions>
+            </plugin>
+            <plugin>
+                <groupId>io.fabric8</groupId>
+                <artifactId>docker-maven-plugin</artifactId>
+                <version>0.38.1</version>
+                <executions>
+                    <execution>
+                        <id>schemaspy-start</id>
+                        <phase>pre-integration-test</phase>
+                        <goals>
+                            <goal>start</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <images>
+                        <image>
+                            <alias>schemaspy</alias>
+                            <name>schemaspy/schemaspy:latest</name>
+                            <run>
+                                <autoRemove>true</autoRemove>
+                                <network>
+                                    <mode>host</mode>
+                                </network>
+                                <volumes>
+                                    <bind>
+                                        <!--<volume>${project.basedir}/docs/dbDoc:/output</volume>-->
+                                        <volume>${project.basedir}/target/dbDoc:/output</volume>
+                                        <volume>${project.basedir}/schemaspy.properties:/schemaspy.properties</volume>
+                                    </bind>
+                                </volumes>
+                                <wait>
+                                    <time>300000</time> <!--5 min timeout-->
+                                    <exit>0</exit>
+                                </wait>
+                                <log>
+                                    <date>default</date>
+                                    <color>cyan</color>
+                                </log>
+                            </run>
+                        </image>
+                    </images>
+                </configuration>
             </plugin>
         </plugins>
     </build>
