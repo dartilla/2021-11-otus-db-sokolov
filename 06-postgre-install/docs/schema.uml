@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>DATABASE</ID>
+  <OriginalElement>96b31feb-2325-405b-ba33-33f1af60c499</OriginalElement>
+  <nodes>
+    <node x="87.0" y="12.0">96b31feb-2325-405b-ba33-33f1af60c499.TABLE:i_shop.public.product_category</node>
+    <node x="607.8040087719298" y="612.0">96b31feb-2325-405b-ba33-33f1af60c499.TABLE:i_shop.public.supplier</node>
+    <node x="904.5745614035088" y="181.0">96b31feb-2325-405b-ba33-33f1af60c499.TABLE:i_shop.public.orders</node>
+    <node x="813.9078947368421" y="362.0">96b31feb-2325-405b-ba33-33f1af60c499.TABLE:i_shop.public.order_item</node>
+    <node x="950.5745614035088" y="0.0">96b31feb-2325-405b-ba33-33f1af60c499.TABLE:i_shop.public.customer</node>
+    <node x="113.69956140350882" y="374.0">96b31feb-2325-405b-ba33-33f1af60c499.TABLE:i_shop.public.price</node>
+    <node x="234.75" y="181.0">96b31feb-2325-405b-ba33-33f1af60c499.TABLE:i_shop.public.product</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="96b31feb-2325-405b-ba33-33f1af60c499.TABLE:i_shop.public.order_item" target="96b31feb-2325-405b-ba33-33f1af60c499.TABLE:i_shop.public.orders" relationship="REFERENCES">
+      <point x="73.66666666666674" y="-89.5" />
+      <point x="0.0" y="65.5" />
+    </edge>
+    <edge source="96b31feb-2325-405b-ba33-33f1af60c499.TABLE:i_shop.public.orders" target="96b31feb-2325-405b-ba33-33f1af60c499.TABLE:i_shop.public.customer" relationship="REFERENCES">
+      <point x="0.0" y="-65.5" />
+      <point x="0.0" y="65.5" />
+    </edge>
+    <edge source="96b31feb-2325-405b-ba33-33f1af60c499.TABLE:i_shop.public.order_item" target="96b31feb-2325-405b-ba33-33f1af60c499.TABLE:i_shop.public.product" relationship="REFERENCES">
+      <point x="1.0526315793413232E-4" y="-89.5" />
+      <point x="1019.908" y="337.0" />
+      <point x="417.75" y="337.0" />
+      <point x="0.0" y="65.5" />
+    </edge>
+    <edge source="96b31feb-2325-405b-ba33-33f1af60c499.TABLE:i_shop.public.product" target="96b31feb-2325-405b-ba33-33f1af60c499.TABLE:i_shop.public.product_category" relationship="REFERENCES">
+      <point x="-110.25" y="-65.5" />
+      <point x="0.0" y="53.5" />
+    </edge>
+    <edge source="96b31feb-2325-405b-ba33-33f1af60c499.TABLE:i_shop.public.price" target="96b31feb-2325-405b-ba33-33f1af60c499.TABLE:i_shop.public.supplier" relationship="REFERENCES">
+      <point x="4.3859649116484434E-4" y="77.5" />
+      <point x="412.2" y="577.0" />
+      <point x="736.304" y="577.0" />
+      <point x="-8.77192985626607E-6" y="-41.5" />
+    </edge>
+    <edge source="96b31feb-2325-405b-ba33-33f1af60c499.TABLE:i_shop.public.price" target="96b31feb-2325-405b-ba33-33f1af60c499.TABLE:i_shop.public.product" relationship="REFERENCES">
+      <point x="-9.449561403508824" y="-77.5" />
+      <point x="-15.0" y="65.5" />
+    </edge>
+    <edge source="96b31feb-2325-405b-ba33-33f1af60c499.TABLE:i_shop.public.order_item" target="96b31feb-2325-405b-ba33-33f1af60c499.TABLE:i_shop.public.supplier" relationship="REFERENCES">
+      <point x="1.0526315793413232E-4" y="89.5" />
+      <point x="1019.908" y="577.0" />
+      <point x="736.304" y="577.0" />
+      <point x="-8.77192985626607E-6" y="-41.5" />
+    </edge>
+    <edge source="96b31feb-2325-405b-ba33-33f1af60c499.TABLE:i_shop.public.product_category" target="96b31feb-2325-405b-ba33-33f1af60c499.TABLE:i_shop.public.product_category" relationship="REFERENCES">
+      <point x="0.0" y="-53.5" />
+      <point x="307.5" y="-17.5" />
+      <point x="628.25" y="-17.5" />
+      <point x="628.25" y="65.5" />
+      <point x="220.5" y="0.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic" zoom="1.0" showDependencies="false" x="685.0" y="339.0" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Columns</Category>
+    <Category>Comments</Category>
+    <Category>Key columns</Category>
+    <Category>Virtual foreign keys</Category>
+  </Categories>
+</Diagram>
+
