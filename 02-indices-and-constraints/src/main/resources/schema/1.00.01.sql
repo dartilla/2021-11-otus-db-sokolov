@@ -116,21 +116,3 @@ comment on constraint amount_is_more_than_zero on order_item IS 'Количес�
 create index idx_01_price on price (product_id, price);
 
 create index idx_01_orders on orders (creation_date);
-
-
---changeset dartilla:add constraints logicalFilePath:schema/1.00.01.sql
-alter table price add constraint price_is_not_negative check ( price >= 0 );
-comment on constraint price_is_not_negative on price IS 'Цена должна быть не отрицательна';
-
-alter table price add constraint amount_is_more_than_zero check ( amount > 0 );
-comment on constraint amount_is_more_than_zero on price IS 'Количество должно быть больше 0';
-
-alter table order_item add constraint price_is_not_negative check ( price >= 0 );
-comment on constraint price_is_not_negative on order_item IS 'Цена должна быть не отрицательна';
-
-alter table order_item add constraint amount_is_more_than_zero check ( amount > 0 );
-comment on constraint amount_is_more_than_zero on order_item IS 'Количество должно быть больше 0';
-
-create index idx_01_price on price (product_id, price);
-
-create index idx_01_orders on orders (creation_date);
