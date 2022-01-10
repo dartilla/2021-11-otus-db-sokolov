@@ -1,0 +1,13 @@
+version: '2'
+services:
+  postgres:
+    image: postgres:14.1
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_PASSWORD=123456
+      - POSTGRES_USER=postgres
+      - POSTGRES_MULTIPLE_DATABASES=i_shop
+    mem_limit: 512m
+    volumes:
+      - ./init-user-db.sh:/docker-entrypoint-initdb.d/init-user-db.sh
