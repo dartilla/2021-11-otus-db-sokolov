@@ -10,4 +10,6 @@ services:
       - POSTGRES_MULTIPLE_DATABASES=i_shop
     mem_limit: 512m
     volumes:
-      - ./init-user-db.sh:/docker-entrypoint-initdb.d/init-user-db.sh
+      - ./postgres/init-user-db.sh:/tmp/docker-entrypoint-initdb.d/init-user-db.sh
+      - ./postgres/start.sh:/start.sh
+    command: [/start.sh]
