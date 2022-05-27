@@ -6,9 +6,9 @@
     <version>1.0.0</version>
 
     <properties>
-        <liquibase.url>jdbc:postgresql://localhost:5432/i_shop</liquibase.url>
-        <liquibase.username>postgres</liquibase.username>
-        <liquibase.password>123456</liquibase.password>
+        <liquibase.url>jdbc:postgresql://localhost:5432/big_db?currentSchema=i_shop</liquibase.url>
+        <liquibase.username>i_shop</liquibase.username>
+        <liquibase.password>i_shop</liquibase.password>
         <liquibase.changeLogFile>rootChangeLog.xml</liquibase.changeLogFile>
         <liquibase.outputDirectory>docs/dbDoc</liquibase.outputDirectory>
     </properties>
@@ -101,7 +101,6 @@
                                     </bind>
                                 </volumes>
                                 <wait>
-                                    <time>300000</time> <!--5 min timeout-->
                                     <exit>0</exit>
                                 </wait>
                                 <log>
